@@ -30,7 +30,7 @@
   }
 
   // ---- search ----
-  var IDX = window.JORA_INDEX || [], ROOT = window.JORA_ROOT || '';
+  var IDX = window.PCHC_INDEX || [], ROOT = window.PCHC_ROOT || '';
   function find(q) {
     q = q.toLowerCase().split(/\s+/).filter(Boolean); if (!q.length) return [];
     return IDX.map(function (x) {
@@ -45,7 +45,7 @@
     var inp = sf2.querySelector('input'), box = sf2.querySelector('.sres');
     inp.addEventListener('input', function () {
       var r = find(inp.value).slice(0, 6);
-      box.innerHTML = r.length ? r.map(function (x) { return '<a href="' + ROOT + x.u + '"><b>' + esc(x.t) + '</b><span>' + esc(x.d.slice(0, 80)) + '</span></a>'; }).join('') : (inp.value ? '<p>No results. Try "furnace", "heat pump" or a city name.</p>' : '');
+      box.innerHTML = r.length ? r.map(function (x) { return '<a href="' + ROOT + x.u + '"><b>' + esc(x.t) + '</b><span>' + esc(x.d.slice(0, 80)) + '</span></a>'; }).join('') : (inp.value ? '<p>No results. Try "furnace", "heat pump" or "water heater".</p>' : '');
       box.style.display = inp.value ? 'block' : 'none';
     });
     document.addEventListener('click', function (e) { if (!e.target.closest('.sform')) box.style.display = 'none'; });
